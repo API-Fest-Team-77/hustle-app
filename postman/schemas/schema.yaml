@@ -149,7 +149,7 @@ paths:
           description: 'post not found' 
     delete:
       summary: 'delete a post'
-      operationId: getPost
+      operationId: deletePost
       tags:
         - post
       parameters:
@@ -162,6 +162,57 @@ paths:
       responses:
         '200':
           description: 'post details deleted'
+        '404':
+          description: 'post not found' 
+  /postsByCategory:
+    get:
+      summary: 'Get array of posts by category'
+      operationId: getPostsByCategory
+      tags:
+        - postsByCategory
+      parameters:
+        - name: category
+          in: query
+          description: category of the post
+          required: true
+          schema:
+            $ref: "#/components/schemas/category"
+      responses:
+        '200':
+          description: 'post details retrived'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/postsByCategory'
+        '404':
+          description: 'post not found' 
+  /categories:
+    get:
+      summary: 'Get all categories'
+      operationId: getCategories
+      tags:
+        - categories
+      
+      responses:
+        '200':
+          description: 'categories retrived'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/categories'      
+  /posts:
+    get:
+      summary: 'Get all posts'
+      operationId: getPosts
+      tags:
+        - posts
+      responses:
+        '200':
+          description: 'post details retrived'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/posts'
         '404':
           description: 'post not found' 
   /exampleuser:
@@ -261,6 +312,10 @@ components:
                 type: string
     category:
         type: string
+    categories:
+        type: array
+        items:
+            $ref: "#/components/schemas/category"
     post:
         type: object
         description: 'post of an idea'
@@ -279,6 +334,16 @@ components:
                 type: integer
             category:
                 $ref: "#/components/schemas/category"
+    posts:
+        type: array
+        description: 'array of all posts'
+        items:
+            $ref: "#/components/schemas/post"
+    postsByCategory:
+        type: array
+        description: 'array of posts of same category'
+        items:
+            $ref: "#/components/schemas/post"
             
     Error:
       type: object
