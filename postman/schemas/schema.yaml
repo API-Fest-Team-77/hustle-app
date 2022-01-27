@@ -89,6 +89,81 @@ paths:
       responses:
         '201':
           description: 'profile details updated'
+  /post:
+    get:
+      summary: 'Get a post'
+      operationId: getPost
+      tags:
+        - post
+      parameters:
+        - name: id
+          in: query
+          description: ID of the post
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'post details retrived'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/post'
+        '404':
+          description: 'post not found' 
+    post:
+      summary: 'create a post'
+      operationId: createPost
+      tags:
+        - post
+      requestBody:
+        required: true
+        description: post info
+        content:
+          application/json:
+            schema:
+                $ref: "#/components/schemas/post"
+      responses:
+        '201':
+          description: 'post created'
+        '403':
+          description: 'invalid post' 
+    put:
+      summary: 'update a post'
+      operationId: updatePost
+      tags:
+        - post
+      requestBody:
+        required: true
+        description: post info
+        content:
+          application/json:
+            schema:
+                $ref: "#/components/schemas/post"
+      responses:
+        '201':
+          description: 'post details updated'
+        '403':
+          description: 'invalid post'
+        '404':
+          description: 'post not found' 
+    delete:
+      summary: 'delete a post'
+      operationId: getPost
+      tags:
+        - post
+      parameters:
+        - name: id
+          in: query
+          description: ID of the post
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'post details deleted'
+        '404':
+          description: 'post not found' 
   /exampleuser:
     get:
       summary: 'Sample endpoint: Returns details about a particular user'
@@ -186,6 +261,25 @@ components:
                 type: string
     category:
         type: string
+    post:
+        type: object
+        description: 'post of an idea'
+        required:
+            - id
+            - title
+            - body
+        properties:
+            id:
+                type: string
+            title:
+                type: string
+            body: 
+                type: string
+            interestCount:
+                type: integer
+            category:
+                $ref: "#/components/schemas/category"
+            
     Error:
       type: object
       required:
