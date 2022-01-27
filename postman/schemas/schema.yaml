@@ -1,0 +1,205 @@
+openapi: 3.0.0
+info:
+  version: 'v1'
+  title: 'Hustle-API'
+servers:
+  - url: 'localhost:3000'
+paths:
+  /login:
+    post:
+      summary: 'Returns details about a particular user'
+      operationId: loginUser
+      tags:
+        - login
+      requestBody:
+        required: true
+        description: user details
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserAuth"
+      responses:
+        '200':
+          description: 'Login is successful'
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+        '401':
+          description: 'incorrect username/passowrd'
+  /signup:
+    post:
+      summary: 'Registers an user'
+      operationId: UserSignup
+      tags:
+        - signup
+      requestBody:
+        required: true
+        description: user details
+        content:
+          application/json:
+            schema:
+                $ref: "#/components/schemas/UserSignup"
+                
+      responses:
+        '201':
+          description: 'Signup is successful'
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+        '401':
+          description: 'invalid inputs'
+  /profile:
+    get:
+      summary: 'returns the profile details of a user'
+      operationId: UserProfile
+      tags:
+        - profile
+      parameters:
+        - name: username
+          in: query
+          description: username of the user
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'profile details retrived'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+            description: 'user does not exist'
+    put:
+      summary: 'edit the profile details of a user'
+      operationId: UserProfile
+      tags:
+        - profile
+      parameters:
+        - name: username
+          in: query
+          description: username of the user
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: 'profile details updated'
+  /exampleuser:
+    get:
+      summary: 'Sample endpoint: Returns details about a particular user'
+      operationId: listUser
+      tags:
+        - user
+      parameters:
+        - name: id
+          in: query
+          description: ID of the user
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Sample response: Details about a user by ID'
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    UserAuth:
+        type: object
+        required:
+            - username
+            - password
+        properties:
+            username:
+                type: string
+            password:
+                type: string
+    UserSignup:
+        type: object
+        required:
+            - username
+            - password
+            - email
+        properties:
+            username:
+                type: string
+            password:
+                type: string
+            email:
+                type: string
+    User:
+      type: object
+      required:
+          - id
+          - username
+          - firstName
+          - email
+      properties:
+        id:
+          type: string
+        username:
+            type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        profilePictureURL:
+          type: string
+        location:
+            type: string
+        interests:
+            description: array of interests of an user
+            type: array
+            items:
+                $ref: "#/components/schemas/category"
+        jobDescription:
+            type: object
+            $ref : '#/components/schemas/jobDescription'
+    jobDescription:
+        type: object
+        description: job title and company name
+        properties:
+            jobTitle:
+                type: string
+            company:
+                type: string
+    category:
+        type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+security:
+  - BasicAuth: []
