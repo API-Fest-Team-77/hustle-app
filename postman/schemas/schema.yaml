@@ -111,7 +111,7 @@ paths:
           description: "Request is sucessful and a post created"
         "403":
           description: "invalid post"
-  /posts/{id}:
+  /posts/:id:
     get:
       summary: "Get a post"
       operationId: getPost
@@ -162,7 +162,7 @@ paths:
           description: "post details deleted"
         "404":
           description: "post not found"
-  /posts/{category}:
+  /posts/:category:
     get:
       summary: "Retruns an array of posts by category"
       operationId: getPostsByCategory
