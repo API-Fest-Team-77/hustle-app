@@ -59,12 +59,7 @@ paths:
       tags:
         - profile
       parameters:
-        - name: username
-          in: query
-          description: username of the user
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/username'
       responses:
         '200':
           description: 'profile details retrived'
@@ -80,12 +75,7 @@ paths:
       tags:
         - profile
       parameters:
-        - name: username
-          in: query
-          description: username of the user
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/username'
       responses:
         '201':
           description: 'profile details updated'
@@ -96,12 +86,7 @@ paths:
       tags:
         - post
       parameters:
-        - name: id
-          in: query
-          description: ID of the post
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/id'
       responses:
         '200':
           description: 'post details retrived'
@@ -153,12 +138,7 @@ paths:
       tags:
         - post
       parameters:
-        - name: id
-          in: query
-          description: ID of the post
-          required: true
-          schema:
-            type: string
+        - $ref: '#/components/parameters/id'
       responses:
         '200':
           description: 'post details deleted'
@@ -171,12 +151,7 @@ paths:
       tags:
         - postsByCategory
       parameters:
-        - name: category
-          in: query
-          description: category of the post
-          required: true
-          schema:
-            $ref: "#/components/schemas/category"
+        - $ref: '#/components/parameters/category'
       responses:
         '200':
           description: 'post details retrived'
@@ -215,40 +190,38 @@ paths:
                 $ref: '#/components/schemas/posts'
         '404':
           description: 'post not found' 
-  /exampleuser:
-    get:
-      summary: 'Sample endpoint: Returns details about a particular user'
-      operationId: listUser
-      tags:
-        - user
-      parameters:
-        - name: id
-          in: query
-          description: ID of the user
-          required: true
-          schema:
-            type: integer
-            format: int32
-      responses:
-        '200':
-          description: 'Sample response: Details about a user by ID'
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-        default:
-          description: Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
 components:
+  parameters:
+    username:
+        name: username
+        in: query
+        description: username of the user
+        required: true
+        schema:
+          type: string
+    id:
+        name: id
+        in: query
+        description: ID of the post
+        required: true
+        schema:
+            type: string
+    category:
+        name: category
+        in: query
+        description: category of the post
+        required: true
+        schema:
+            $ref: "#/components/schemas/category"
   schemas:
+    session:
+        type: object
+        required:
+            - logged_in
+        properties:
+            logged_in:
+                type: boolean
+                default: false
     UserAuth:
         type: object
         required:
