@@ -1,13 +1,13 @@
 openapi: 3.0.0
 info:
-  version: 'v1'
-  title: 'Hustle-API'
+  version: "v1"
+  title: "Hustle-API"
 servers:
-  - url: 'localhost:3000'
+  - url: "localhost:3000"
 paths:
   /login:
     post:
-      summary: 'Returns details about a particular user'
+      summary: "Returns details about a particular user"
       operationId: loginUser
       tags:
         - login
@@ -19,18 +19,18 @@ paths:
             schema:
               $ref: "#/components/schemas/UserAuth"
       responses:
-        '200':
-          description: 'Login is successful'
+        "200":
+          description: "Login is successful"
           headers:
             x-next:
               description: A link to the next page of responses
               schema:
                 type: string
-        '401':
+        "401":
           description: 'incorrect username/passowrd'
   /signup:
     post:
-      summary: 'Registers an user'
+      summary: "Registers an user"
       operationId: UserSignup
       tags:
         - signup
@@ -40,64 +40,64 @@ paths:
         content:
           application/json:
             schema:
-                $ref: "#/components/schemas/UserSignup"
-                
+              $ref: "#/components/schemas/UserSignup"
+
       responses:
-        '201':
-          description: 'Signup is successful'
+        "201":
+          description: "Signup is successful"
           headers:
             x-next:
               description: A link to the next page of responses
               schema:
                 type: string
-        '401':
-          description: 'invalid inputs'
+        "401":
+          description: "invalid inputs"
   /profile:
     get:
-      summary: 'returns the profile details of a user'
+      summary: "returns the profile details of a user"
       operationId: UserProfile
       tags:
         - profile
       parameters:
-        - $ref: '#/components/parameters/username'
+        - $ref: "#/components/parameters/username"
       responses:
-        '200':
-          description: 'profile details retrived'
+        "200":
+          description: "profile details retrived"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-        '404':
-            description: 'user does not exist'
+                $ref: "#/components/schemas/User"
+        "404":
+          description: "user does not exist"
     put:
-      summary: 'edit the profile details of a user'
+      summary: "edit the profile details of a user"
       operationId: UserProfile
       tags:
         - profile
       parameters:
-        - $ref: '#/components/parameters/username'
+        - $ref: "#/components/parameters/username"
       responses:
-        '201':
-          description: 'profile details updated'
+        "201":
+          description: "profile details updated"
   /post:
     get:
-      summary: 'Get a post'
+      summary: "Get a post"
       operationId: getPost
       tags:
         - post
       parameters:
-        - $ref: '#/components/parameters/id'
+        - $ref: "#/components/parameters/id"
       responses:
-        '200':
-          description: 'post details retrived'
+        "200":
+          description: "post details retrived"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/post'
-        '404':
-          description: 'post not found' 
+                $ref: "#/components/schemas/post"
+        "404":
+          description: "post not found"
     post:
-      summary: 'create a post'
+      summary: "create a post"
       operationId: createPost
       tags:
         - post
@@ -107,14 +107,14 @@ paths:
         content:
           application/json:
             schema:
-                $ref: "#/components/schemas/post"
+              $ref: "#/components/schemas/post"
       responses:
-        '201':
-          description: 'post created'
-        '403':
-          description: 'invalid post' 
+        "201":
+          description: "post created"
+        "403":
+          description: "invalid post"
     put:
-      summary: 'update a post'
+      summary: "update a post"
       operationId: updatePost
       tags:
         - post
@@ -124,139 +124,139 @@ paths:
         content:
           application/json:
             schema:
-                $ref: "#/components/schemas/post"
+              $ref: "#/components/schemas/post"
       responses:
-        '201':
-          description: 'post details updated'
-        '403':
-          description: 'invalid post'
-        '404':
-          description: 'post not found' 
+        "201":
+          description: "post details updated"
+        "403":
+          description: "invalid post"
+        "404":
+          description: "post not found"
     delete:
-      summary: 'delete a post'
+      summary: "delete a post"
       operationId: deletePost
       tags:
         - post
       parameters:
-        - $ref: '#/components/parameters/id'
+        - $ref: "#/components/parameters/id"
       responses:
-        '200':
-          description: 'post details deleted'
-        '404':
-          description: 'post not found' 
+        "200":
+          description: "post details deleted"
+        "404":
+          description: "post not found"
   /postsByCategory:
     get:
-      summary: 'Get array of posts by category'
+      summary: "Get array of posts by category"
       operationId: getPostsByCategory
       tags:
         - postsByCategory
       parameters:
-        - $ref: '#/components/parameters/category'
+        - $ref: "#/components/parameters/category"
       responses:
-        '200':
-          description: 'post details retrived'
+        "200":
+          description: "post details retrived"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/postsByCategory'
-        '404':
-          description: 'post not found' 
+                $ref: "#/components/schemas/postsByCategory"
+        "404":
+          description: "post not found"
   /categories:
     get:
-      summary: 'Get all categories'
+      summary: "Get all categories"
       operationId: getCategories
       tags:
         - categories
-      
+
       responses:
-        '200':
-          description: 'categories retrived'
+        "200":
+          description: "categories retrived"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/categories'      
+                $ref: "#/components/schemas/categories"
   /posts:
     get:
-      summary: 'Get all posts'
+      summary: "Get all posts"
       operationId: getPosts
       tags:
         - posts
       responses:
-        '200':
-          description: 'post details retrived'
+        "200":
+          description: "post details retrived"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/posts'
-        '404':
-          description: 'post not found' 
+                $ref: "#/components/schemas/posts"
+        "404":
+          description: "post not found"
 components:
   parameters:
     username:
-        name: username
-        in: query
-        description: username of the user
-        required: true
-        schema:
-          type: string
+      name: username
+      in: query
+      description: username of the user
+      required: true
+      schema:
+        type: string
     id:
-        name: id
-        in: query
-        description: ID of the post
-        required: true
-        schema:
-            type: string
+      name: id
+      in: query
+      description: ID of the post
+      required: true
+      schema:
+        type: string
     category:
-        name: category
-        in: query
-        description: category of the post
-        required: true
-        schema:
-            $ref: "#/components/schemas/category"
+      name: category
+      in: query
+      description: category of the post
+      required: true
+      schema:
+        $ref: "#/components/schemas/category"
   schemas:
     session:
-        type: object
-        required:
-            - logged_in
-        properties:
-            logged_in:
-                type: boolean
-                default: false
+      type: object
+      required:
+        - logged_in
+      properties:
+        logged_in:
+          type: boolean
+          default: false
     UserAuth:
-        type: object
-        required:
-            - username
-            - password
-        properties:
-            username:
-                type: string
-            password:
-                type: string
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
     UserSignup:
-        type: object
-        required:
-            - username
-            - password
-            - email
-        properties:
-            username:
-                type: string
-            password:
-                type: string
-            email:
-                type: string
+      type: object
+      required:
+        - username
+        - password
+        - email
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
     User:
       type: object
       required:
-          - id
-          - username
-          - firstName
-          - email
+        - id
+        - username
+        - firstName
+        - email
       properties:
         id:
           type: string
         username:
-            type: string
+          type: string
         firstName:
           type: string
         lastName:
@@ -266,58 +266,60 @@ components:
         profilePictureURL:
           type: string
         location:
-            type: string
+          type: string
         interests:
-            description: array of interests of an user
-            type: array
-            items:
-                $ref: "#/components/schemas/category"
-        jobDescription:
-            type: object
-            $ref : '#/components/schemas/jobDescription'
-    jobDescription:
-        type: object
-        description: job title and company name
-        properties:
-            jobTitle:
-                type: string
-            company:
-                type: string
-    category:
-        type: string
-    categories:
-        type: array
-        items:
+          description: array of interests of an user
+          type: array
+          items:
             $ref: "#/components/schemas/category"
+        jobDescription:
+          type: object
+          $ref: "#/components/schemas/jobDescription"
+    jobDescription:
+      type: object
+      description: job title and company name
+      properties:
+        jobTitle:
+          type: string
+        company:
+          type: string
+    category:
+      type: string
+    categories:
+      type: array
+      items:
+        $ref: "#/components/schemas/category"
     post:
-        type: object
-        description: 'post of an idea'
-        required:
-            - id
-            - title
-            - body
-        properties:
-            id:
-                type: string
-            title:
-                type: string
+      type: object
+      description: "post of an idea"
+      required:
+        - id
+        - title
+        - body
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        body:
             body: 
-                type: string
-            interestCount:
-                type: integer
-            category:
-                $ref: "#/components/schemas/category"
+        body:
+          type: string
+        interestCount:
+          type: integer
+        category:
+          $ref: "#/components/schemas/category"
     posts:
-        type: array
-        description: 'array of all posts'
-        items:
-            $ref: "#/components/schemas/post"
+      type: array
+      description: "array of all posts"
+      items:
+        $ref: "#/components/schemas/post"
     postsByCategory:
-        type: array
-        description: 'array of posts of same category'
-        items:
-            $ref: "#/components/schemas/post"
-            
+      type: array
+      description: "array of posts of same category"
+      items:
+        $ref: "#/components/schemas/post"
+
     Error:
       type: object
       required:
