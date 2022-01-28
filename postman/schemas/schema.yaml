@@ -70,7 +70,7 @@ paths:
                 $ref: "#/components/schemas/User"
         "404":
           description: "user does not exist"
-    put:
+    patch:
       summary: "edit the profile details of a user"
       operationId: UserProfile
       tags:
