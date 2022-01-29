@@ -1,4 +1,7 @@
 # Hustle App
+## Important note-
+
+We have deployed our backend on heroku. You can check it out in the postman workspace
 
 ## Inspiration
 
