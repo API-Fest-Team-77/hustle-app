@@ -22,6 +22,8 @@ paths:
       responses:
         "200":
           description: "Login is successful"
+        "404":
+          description: "user not found"
   /signup:
     post:
       summary: "Registers an user"
@@ -34,7 +36,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserSignup"
+              $ref: "#/components/schemas/User"
 
       responses:
         "201":
@@ -54,8 +56,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+        "404":
+          description: "user does not exist"
     patch:
-      summary: "update the profile details of a user"
+      summary: "edit the profile details of a user"
       operationId: UserProfile
       tags:
         - profile
@@ -91,9 +95,11 @@ paths:
             schema:
               $ref: "#/components/schemas/post"
       responses:
-        "201":
+        "200":
           description: "Request is sucessful and a post created"
-  /posts/{id}:
+        "500":
+          description: "error"
+  /posts/:id:
     get:
       summary: "Get a post"
       operationId: getPost
@@ -108,8 +114,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/post"
+        "404":
+          description: "post not found"
 
-    patch:
+    put:
       summary: "update a post"
       operationId: updatePost
       tags:
@@ -126,6 +134,8 @@ paths:
       responses:
         "201":
           description: "post details updated"
+        "403":
+          description: "not authorized"
     delete:
       summary: "delete a post"
       operationId: deletePost
@@ -136,21 +146,47 @@ paths:
       responses:
         "200":
           description: "post details deleted"
-        "404":
-          description: "post not found"
-  /category:
-    get:
-      summary: "Get all categories"
-      operationId: getCategories
+        "403":
+          description: "not authorized"
+  /posts/:id/like:
+    put:
+      summary: "like a post"
+      operationId: likePost
       tags:
-        - categories
+        - post
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        required: true
+        description: post info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/post"
       responses:
-        "200":
-          description: "categories retrived"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/categories"
+        "201":
+          description: "You liked this post!"
+        "403":
+          description: "You Disliked this post!"
+  /timeline:
+    get:
+      summary: "get your timeline"
+      operationId: updatePost
+      tags:
+        - post
+      requestBody:
+        required: true
+        description: user info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/userId"
+      responses:
+        "201":
+          description: "post details updated"
+        "403":
+          description: "not authorized"
+
 components:
   parameters:
     username:
@@ -162,50 +198,28 @@ components:
         type: string
     id:
       name: id
-      in: path
+      in: query
       description: ID of the post
       required: true
       schema:
         type: string
-    category:
-      name: category
-      in: path
-      description: category of the post
-      required: true
-      schema:
-        $ref: "#/components/schemas/category"
   schemas:
-    session:
-      type: object
-      required:
-        - logged_in
-      properties:
-        logged_in:
-          type: boolean
-          default: false
+    id:
+      type: string
+    userId:
+      type: string
+    imageURL:
+      type: string
     UserAuth:
-      type: object
-      required:
-        - username
-        - password
-      properties:
-        username:
-          type: string
-        password:
-          type: string
-    UserSignup:
-      type: object
-      required:
-        - username
-        - password
-        - email
-      properties:
-        username:
-          type: string
-        password:
-          type: string
-        email:
-          type: string
+        type: object
+        required:
+            - username
+            - password
+        properties:
+            username:
+                type: string
+            password:
+                type: string
     User:
       type: object
       required:
@@ -224,57 +238,45 @@ components:
           type: string
         email:
           type: string
-        profilePictureURL:
+        profilePicture:
           type: string
         location:
           type: string
-        interests:
-          description: array of interests of an user
-          type: array
-          items:
-            $ref: "#/components/schemas/category"
-        jobDescription:
-          type: object
-          $ref: "#/components/schemas/jobDescription"
-    jobDescription:
-      type: object
-      description: job title and company name
-      properties:
         jobTitle:
           type: string
-        company:
+        companyName:
           type: string
-    category:
-      type: string
-    categories:
-      type: array
-      items:
-        $ref: "#/components/schemas/category"
+        about:
+          type: string
+        followers:
+          type: array
+          items:
+            $ref: "#/components/schemas/userId"
+        following:
+          type: array
+          items:
+            $ref: "#/components/schemas/userId"
     post:
       type: object
       description: "post of an idea"
       required:
-        - id
+        - userId
         - title
-        - body
+        - content
+        - images
+        - likes
       properties:
         id:
           type: string
+        userId:
+          type: string
         title:
           type: string
-        body:
+        content:
           type: string
-        interestCount:
-          type: integer
-        category:
-          $ref: "#/components/schemas/category"
-    posts:
-      type: array
-      description: "array of all posts"
-      items:
-        $ref: "#/components/schemas/post"
-    postsByCategory:
-      type: array
-      description: "array of posts of same category"
-      items:
-        $ref: "#/components/schemas/post"
+        likes:
+          type: array
+          items: 
+              $ref: "#/components/schemas/userId"
+        images:
+          $ref: "#/components/schemas/imageURL"
