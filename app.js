@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const connectToMongo = require('./db');
 
 // Initialize the server
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const app = express();
 connectToMongo();
 
