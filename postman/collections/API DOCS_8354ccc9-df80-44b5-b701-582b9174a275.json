@@ -1,0 +1,1225 @@
+{
+    "info": {
+        "_postman_id": "fd47d96f-aa41-435b-bcf1-f471d2bd2180",
+        "name": "API DOCS",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "posts",
+            "item": [
+                {
+                    "name": ":id",
+                    "item": [
+                        {
+                            "name": "Get a post",
+                            "id": "d4283f28-4a1c-4a56-b3ef-ffd67abf37d8",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "id": "6a4366d3-181c-4afe-a1db-6e174e902ee0",
+                                            "type": "any"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "7bdb9946-f869-47d3-96ed-58c30a2252af",
+                                    "name": "Returned a specific post by id",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"userId\": \"in\",\n \"title\": \"est officia\",\n \"content\": \"deserunt in\",\n \"images\": \"Duis et labore\",\n \"likes\": [\n  \"velit Duis deserunt\",\n  \"est\"\n ],\n \"id\": \"nisi in\"\n}"
+                                },
+                                {
+                                    "id": "bd993f63-04f4-4198-a837-bd5564075c20",
+                                    "name": "post not found",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "6a4366d3-181c-4afe-a1db-6e174e902ee0",
+                                    "key": "id",
+                                    "type": "any"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "update a post",
+                            "id": "81fd9262-0ee6-415e-8024-0ce86e1d3a44",
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "id": "570d8658-494b-4431-b484-21b85136a744",
+                                            "type": "any"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "0d9b152a-5eb2-4325-89ef-31f8e4534925",
+                                    "name": "post details updated",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"userId\": \"in\",\n    \"title\": \"est officia\",\n    \"content\": \"deserunt in\",\n    \"images\": \"Duis et labore\",\n    \"likes\": [\n        \"velit Duis deserunt\",\n        \"est\"\n    ],\n    \"id\": \"nisi in\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "bd42580c-7484-430a-bcef-f46a333c0dc7",
+                                    "name": "not authorized",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"userId\": \"in\",\n    \"title\": \"est officia\",\n    \"content\": \"deserunt in\",\n    \"images\": \"Duis et labore\",\n    \"likes\": [\n        \"velit Duis deserunt\",\n        \"est\"\n    ],\n    \"id\": \"nisi in\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Forbidden",
+                                    "code": 403,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "570d8658-494b-4431-b484-21b85136a744",
+                                    "key": "id",
+                                    "type": "any"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "delete a post",
+                            "id": "edb3890e-f44b-4622-aa1d-8ad9d414f557",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "id": "3381b862-ab20-4175-8bf2-355dce59d26d",
+                                            "type": "any"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "8c32cabe-b119-42b1-8204-daa93ea5992e",
+                                    "name": "post details deleted",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "e9f898e3-03e8-44c5-91aa-cda92e3a10ec",
+                                    "name": "not authorized",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Forbidden",
+                                    "code": 403,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "3381b862-ab20-4175-8bf2-355dce59d26d",
+                                    "key": "id",
+                                    "type": "any"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "like a post",
+                            "id": "01bb6e48-0f95-4c1c-b280-ceb78608add6",
+                            "request": {
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id/like",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id",
+                                        "like"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "id": "cb2527bb-dcd7-429f-9f13-7ff4b196cf75",
+                                            "type": "any"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "0f99237f-56cb-4816-993c-360f5f9107ec",
+                                    "name": "You liked this post!",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"userId\": \"in\",\n    \"title\": \"est officia\",\n    \"content\": \"deserunt in\",\n    \"images\": \"Duis et labore\",\n    \"likes\": [\n        \"velit Duis deserunt\",\n        \"est\"\n    ],\n    \"id\": \"nisi in\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id/like?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id",
+                                                "like"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "ad7908c0-6a40-4e13-b5b1-824af16ce5dc",
+                                    "name": "You Disliked this post!",
+                                    "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"userId\": \"in\",\n    \"title\": \"est officia\",\n    \"content\": \"deserunt in\",\n    \"images\": \"Duis et labore\",\n    \"likes\": [\n        \"velit Duis deserunt\",\n        \"est\"\n    ],\n    \"id\": \"nisi in\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id/like?id=sed ut",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id",
+                                                "like"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "sed ut"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Forbidden",
+                                    "code": 403,
+                                    "_postman_previewlanguage": "Text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "id": "cb2527bb-dcd7-429f-9f13-7ff4b196cf75",
+                                    "key": "id",
+                                    "type": "any"
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "d50147b6-a8ff-450d-a03b-6c4cb89c07ae"
+                },
+                {
+                    "name": "get all the posts",
+                    "id": "c5969928-5ca3-4abc-99d8-28728dfce2d4",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/posts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "posts"
+                            ]
+                        },
+                        "description": "Return all the posts that are in our app"
+                    },
+                    "response": [
+                        {
+                            "id": "b79d2b79-8e5b-4641-8b87-1427eb57b5f0",
+                            "name": "An array of blog posts in JSON format",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "Text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{}"
+                        }
+                    ]
+                },
+                {
+                    "name": "create a post",
+                    "id": "f22c4144-7117-4839-a5d3-7552a7376080",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": \"Excepteu\",\n    \"title\": \"officia\",\n    \"content\": \"nisi ut culpa exercitation in\",\n    \"images\": \"id commodo ex pariatur ullamco\",\n    \"likes\": [\n        \"aliquip aliqua fugiat dolore\",\n        \"cupidatat elit dolor\"\n    ],\n    \"id\": \"do Excepteur in\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/posts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "posts"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "ec39d395-244f-42f6-8383-322dd1467b9a",
+                            "name": "Request is sucessful and a post created",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"userId\": \"in\",\n    \"title\": \"est officia\",\n    \"content\": \"deserunt in\",\n    \"images\": \"Duis et labore\",\n    \"likes\": [\n        \"velit Duis deserunt\",\n        \"est\"\n    ],\n    \"id\": \"nisi in\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "Text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        },
+                        {
+                            "id": "923377bb-4b4f-45e7-98ad-74afcb70f73e",
+                            "name": "error",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"userId\": \"in\",\n    \"title\": \"est officia\",\n    \"content\": \"deserunt in\",\n    \"images\": \"Duis et labore\",\n    \"likes\": [\n        \"velit Duis deserunt\",\n        \"est\"\n    ],\n    \"id\": \"nisi in\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts"
+                                    ]
+                                }
+                            },
+                            "status": "Internal Server Error",
+                            "code": 500,
+                            "_postman_previewlanguage": "Text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "id": "a4ce87f2-078a-4818-8458-dbea4126c79e"
+        },
+        {
+            "name": "users",
+            "item": [
+                {
+                    "name": "return profile",
+                    "id": "b92488d9-8939-4312-b1f3-69f1f24041a9",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/users/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "3b5ea495-2a8c-4a5b-b1c8-5e7dceb550d5",
+                                    "key": "id",
+                                    "value": "61f4ec868ebd58fe29bb5aff",
+                                    "type": "any",
+                                    "description": "(Required) ID of the post"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "08b7d303-2847-45a6-b4ab-4f24f517604e",
+                            "name": "returns the profile details of a user",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/users/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "users",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id",
+                                            "value": "{{sample_userid}}",
+                                            "description": "(Required) ID of the post"
+                                        }
+                                    ]
+                                }
+                            },
+                            "_postman_previewlanguage": "Text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\r\n    \"_id\": \"61f4ec868ebd58fe29bb5aff\",\r\n    \"username\": \"hardikchoksi\",\r\n    \"firstName\": \"hardik\",\r\n    \"lastName\": \"choksi\",\r\n    \"email\": \"hardikchoksi@protonmail.com\",\r\n    \"profilePicture\": \"\",\r\n    \"location\": \"Palo Alto, CA\",\r\n    \"jobTitle\": \"SDE 2\",\r\n    \"companyName\": \"xyz\",\r\n    \"about\": \"\",\r\n    \"followers\": [],\r\n    \"followings\": [],\r\n    \"createdAt\": \"2022-01-29T07:28:06.825Z\",\r\n    \"updatedAt\": \"2022-01-29T07:28:06.825Z\",\r\n    \"__v\": 0\r\n}"
+                        }
+                    ],
+                    "variable": [
+                        {
+                            "id": "3b5ea495-2a8c-4a5b-b1c8-5e7dceb550d5",
+                            "key": "id",
+                            "value": "61f4ec868ebd58fe29bb5aff",
+                            "type": "any",
+                            "description": "(Required) ID of the post"
+                        }
+                    ]
+                }
+            ],
+            "id": "ca6c9b1b-5db4-459e-9f7a-db854ae71d16"
+        },
+        {
+            "name": "auth",
+            "item": [
+                {
+                    "name": "Login",
+                    "id": "4b98c2af-6246-4211-a504-0b3a774d563a",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/auth/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ],
+            "id": "7b87647a-855d-4603-b2e5-4e17078ee868"
+        },
+        {
+            "name": "get your timeline",
+            "id": "fc9d5e8b-2a72-47c6-a179-530ba1edf819",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "\"sed ut\"",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/timeline",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "timeline"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "8d0c739a-1d24-4f59-912e-b66d9bee29b9",
+                    "name": "post details updated",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"sed ut\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/timeline",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "timeline"
+                            ]
+                        }
+                    },
+                    "status": "Created",
+                    "code": 201,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                },
+                {
+                    "id": "a305ae7a-656a-4928-a359-235cb9e09cfb",
+                    "name": "not authorized",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"sed ut\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/timeline",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "timeline"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                }
+            ]
+        },
+        {
+            "name": "Signup",
+            "id": "79a4ff4e-8b1d-49d6-ac81-8e3225e1dd1b",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/auth/signup",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "auth",
+                        "signup"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "update profile",
+            "id": "228b3fa8-865a-44f4-b981-a8817e704f44",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/users/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "id": "676d8e09-bf40-433b-9682-7213f3cb4335",
+                            "key": "id",
+                            "value": "non irure enim sit et",
+                            "type": "any",
+                            "description": "(Required) ID of the post"
+                        }
+                    ]
+                }
+            },
+            "response": [],
+            "variable": [
+                {
+                    "id": "676d8e09-bf40-433b-9682-7213f3cb4335",
+                    "key": "id",
+                    "value": "non irure enim sit et",
+                    "type": "any",
+                    "description": "(Required) ID of the post"
+                }
+            ]
+        },
+        {
+            "name": "delete profile",
+            "id": "38203acb-6b46-46c1-8da8-7dbb1ddf9d13",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/users/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "id": "fce75c9b-2e0a-4129-857f-34104cd4d3be",
+                            "key": "id",
+                            "value": "non irure enim sit et",
+                            "type": "any",
+                            "description": "(Required) ID of the post"
+                        }
+                    ]
+                }
+            },
+            "response": [],
+            "variable": [
+                {
+                    "id": "fce75c9b-2e0a-4129-857f-34104cd4d3be",
+                    "key": "id",
+                    "value": "non irure enim sit et",
+                    "type": "any",
+                    "description": "(Required) ID of the post"
+                }
+            ]
+        },
+        {
+            "name": "follow another user",
+            "id": "ce135f82-8d86-400c-b2aa-27eac959dc31",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "\"non irure enim sit et\"",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/users/:id/follow",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        ":id",
+                        "follow"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "non irure enim sit et",
+                            "description": "(Required) ID of the post"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "unfollow another user",
+            "id": "36bb045b-103f-436b-b894-f41c7b2ab1b1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/users/:id/unfollow",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "users",
+                        ":id",
+                        "unfollow"
+                    ],
+                    "variable": [
+                        {
+                            "id": "99c0057e-e6f5-4662-bb98-8033b60016d0",
+                            "key": "id",
+                            "value": "non irure enim sit et",
+                            "type": "any",
+                            "description": "(Required) ID of the post"
+                        }
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "05651b4f-fa86-4db3-a328-005d7e85212c",
+                    "name": "unfollowed!",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"labore amet sed pariatur com\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/users/:id/unfollow",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id",
+                                "unfollow"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "non irure enim sit et",
+                                    "description": "(Required) ID of the post"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Created",
+                    "code": 201,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                },
+                {
+                    "id": "7fd6bcd3-ff27-4a9f-aa54-8ec6f9d2551e",
+                    "name": "you don't follow this user or you cannot unfollow yourself",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\"labore amet sed pariatur com\"",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/users/:id/unfollow",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id",
+                                "unfollow"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "non irure enim sit et",
+                                    "description": "(Required) ID of the post"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                }
+            ],
+            "variable": [
+                {
+                    "id": "99c0057e-e6f5-4662-bb98-8033b60016d0",
+                    "key": "id",
+                    "value": "non irure enim sit et",
+                    "type": "any",
+                    "description": "(Required) ID of the post"
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "b2bf69e2-97ab-407a-84e7-0a90583e9a56",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "cf6d2b9a-b59d-4250-8def-c9f779a65ecc",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "8ae94d47-e39d-476a-9f99-73a9577a6749",
+            "key": "baseUrl",
+            "value": "localhost:3000",
+            "type": "string"
+        }
+    ]
+}

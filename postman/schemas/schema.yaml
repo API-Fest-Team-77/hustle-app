@@ -3,12 +3,12 @@ info:
   version: "v1"
   title: "Hustle-API"
 servers:
-  - url: "localhost:3000"
-    description: Test server
+  - url: "https://hustle-app-api-fest.herokuapp.com/"
+    description: deployed server
 paths:
-  /login:
+  /auth/login:
     post:
-      summary: "Returns details about a particular user"
+      summary: "Login"
       operationId: loginUser
       tags:
         - login
@@ -24,9 +24,9 @@ paths:
           description: "Login is successful"
         "404":
           description: "user not found"
-  /signup:
+  /auth/signup:
     post:
-      summary: "Registers an user"
+      summary: "Signup"
       operationId: UserSignup
       tags:
         - signup
@@ -36,19 +36,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/User"
+              $ref: "#/components/schemas/UserSignup"
 
       responses:
         "201":
           description: "Signup is successful"
-  /profile:
+  /users/{id}:
     get:
-      summary: "returns the profile details of a user"
-      operationId: UserProfile
+      summary: "return profile"
+      operationId: getUserProfile
       tags:
         - profile
       parameters:
-        - $ref: "#/components/parameters/username"
+        - $ref: "#/components/parameters/id"
       responses:
         "200":
           description: "profile details retrived"
@@ -58,19 +58,76 @@ paths:
                 $ref: "#/components/schemas/User"
         "404":
           description: "user does not exist"
-    patch:
-      summary: "edit the profile details of a user"
-      operationId: UserProfile
+    put:
+      summary: "update profile"
+      operationId: updateUserProfile
       tags:
         - profile
       parameters:
-        - $ref: "#/components/parameters/username"
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        required: true
+        description: user details
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
       responses:
         "201":
           description: "profile details updated"
+    delete:
+      summary: "delete profile"
+      operationId: deleteUserProfile
+      tags:
+        - profile
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        "201":
+          description: "profile details updated"
+  /users/{id}/follow:
+    post:
+      summary: "follow another user"
+      operationId: followUser
+      tags:
+        - follow
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        required: true
+        description: user id
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/id"
+      responses:
+        "201":
+          description: "user followed"
+        "403":
+          description: "you already follow this user or you cannot follow yourself"
+  /users/{id}/unfollow:
+    post:
+      summary: "unfollow another user"
+      operationId: followUser
+      tags:
+        - follow
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        required: true
+        description: user id
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/id"
+      responses:
+        "201":
+          description: "unfollowed!"
+        "403":
+          description: "you don't follow this user or you cannot unfollow yourself"
   /posts:
     get:
-      summary: "Return all the posts"
+      summary: "get all the posts"
       description: "Return all the posts that are in our app"
       operationId: getPosts
       tags:
@@ -99,7 +156,7 @@ paths:
           description: "Request is sucessful and a post created"
         "500":
           description: "error"
-  /posts/:id:
+  /posts/{id}:
     get:
       summary: "Get a post"
       operationId: getPost
@@ -148,7 +205,7 @@ paths:
           description: "post details deleted"
         "403":
           description: "not authorized"
-  /posts/:id/like:
+  /posts/{id}/like:
     put:
       summary: "like a post"
       operationId: likePost
@@ -191,14 +248,14 @@ components:
   parameters:
     username:
       name: username
-      in: query
+      in: path
       description: username of the user
       required: true
       schema:
         type: string
     id:
       name: id
-      in: query
+      in: path
       description: ID of the post
       required: true
       schema:
@@ -210,6 +267,19 @@ components:
       type: string
     imageURL:
       type: string
+    UserSignup:
+        type: object
+        required:
+            - username
+            - password
+            - email
+        properties:
+            username:
+                type: string
+            password:
+                type: string
+            email:
+                type: string
     UserAuth:
         type: object
         required:
@@ -223,12 +293,12 @@ components:
     User:
       type: object
       required:
-        - id
+        - _id
         - username
         - firstName
         - email
       properties:
-        id:
+        _id:
           type: string
         username:
           type: string
@@ -256,6 +326,14 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/userId"
+        createdAt:
+            type: string
+        updatedAt:
+            type: string
+        __v:
+            type: integer
+
+        
     post:
       type: object
       description: "post of an idea"
