@@ -38,40 +38,53 @@ We learnt to deploy API using postman and also learnt to build a full stack appl
 ### Base URL: https://hustle-app-api-fest.herokuapp.com/
 
 - POST /api/auth/signup 
-This route is used to signup, for signing up user will have to provide at least username, email and password.
 
-- POST /api/auth/login
-This route is used to login into the app, It will take username and password and return the user object.
+  This route is used to signup, for signing up user will have to provide at least username, email and password.
 
-- PUT /api/users/:id (update user profile)
-This route is used to update a user profile, User can update only his/her/their/its profile, so it'll take userId in request body as well as in query.
+- POST /api/auth/login 
 
-- DELETE /api/users/:id (delete user)
-This route is used to delete a user profile, It takes the same parameters as update.
+  This route is used to login into the app, It will take username and password and return the user object.
 
-- GET /api/users/:id (Get a user profile)
-This route is used to get a user profile, It requires the id in order to find a user profile.
+- PUT /api/users/:id (update user profile) 
 
-- PUT /api/users/:id/follow (follow a user)
-This route is used to follow a user, Suppose person A wants to follow Person B, than this endpoint takes person A's userId as request body parameter and person B's userId as request query parameter.
+  This route is used to update a user profile, User can update only his/her/their/its profile, so it'll take userId in request body as well as in query.
 
-- PUT /api/users/:id/unfollow (unfollow a user)
-This route is used to unfollow a user, It works the same as follow-endpoint.
+- DELETE /api/users/:id (delete user) 
 
-- POST /api/posts (create a post)
-This route is used to create a post, In order to create a new post, This endpoint will atleast require  userId, title and content of the post.
+  This route is used to delete a user profile, It takes the same parameters as update.
 
-- PUT /api/posts/:id (update a post)
-This route is used to update an existing post, It takes the id of post as request query parameter and userId of user as request body parameter, User can only update his/her/their/its post.
+- GET /api/users/:id (Get a user profile) 
 
-- DELETE /api/posts/:id (delete a post)
-This route is used to delete an existing post, It works the same as update post.
+  This route is used to get a user profile, It requires the id in order to find a user profile.
 
-- PUT /api/posts/:id/like (like a post)
-This route is used to like the post, It takes userId of person who wants to like the post as request body parameter.
+- PUT /api/users/:id/follow (follow a user) 
 
-- GET /api/posts/timeline (returns posts based on user's following)
-This route retrievs the feed posts / timeline of a user. It retrieves his/her/their/its post and the posts of the people he/she/they/it follows.
+  This route is used to follow a user, Suppose person A wants to follow Person B, than this endpoint takes person A's userId as request body parameter and person B's userId as    request query parameter.
 
-- GET /api/posts/:id (returns a post with id)
-This route takes a id of post and returns that post as object.
+- PUT /api/users/:id/unfollow (unfollow a user) 
+
+  This route is used to unfollow a user, It works the same as follow-endpoint.
+
+- POST /api/posts (create a post) 
+
+  This route is used to create a post, In order to create a new post, This endpoint will atleast require  userId, title and content of the post.
+
+- PUT /api/posts/:id (update a post) 
+
+  This route is used to update an existing post, It takes the id of post as request query parameter and userId of user as request body parameter, User can only update his/her/their/its post.
+
+- DELETE /api/posts/:id (delete a post) 
+
+  This route is used to delete an existing post, It works the same as update post.
+
+- PUT /api/posts/:id/like (like a post) 
+
+  This route is used to like the post, It takes userId of person who wants to like the post as request body parameter.
+
+- GET /api/posts/timeline (returns posts based on user's following) 
+
+  This route retrievs the feed posts / timeline of a user. It retrieves his/her/their/its post and the posts of the people he/she/they/it follows.
+
+- GET /api/posts/:id (returns a post with id) 
+
+  This route takes a id of post and returns that post as object.
