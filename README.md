@@ -1,9 +1,12 @@
 # Hustle App
+
 ## Important note-
 
 We have deployed our backend on heroku. You can check it out in the postman workspace
 
 [Postman workspace](https://www.postman.com/bold-eclipse-682454/workspace/hustle-api)
+
+![screenshot of postman workspace](https://user-images.githubusercontent.com/61219881/151659764-0f848752-a818-4e29-8dd5-d6473cd824f7.png)
 
 ## Inspiration
 
