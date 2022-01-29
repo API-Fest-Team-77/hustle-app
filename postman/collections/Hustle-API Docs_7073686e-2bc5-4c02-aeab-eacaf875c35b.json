@@ -1,0 +1,1178 @@
+{
+    "info": {
+        "_postman_id": "6e550d5b-50d3-40ac-950b-6c14ca8a1c1f",
+        "name": "Hustle-API Docs",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "profile",
+            "item": [
+                {
+                    "name": "returns the profile details of a user",
+                    "id": "3691b96f-6d0e-401b-8080-c9d146cc7f0a",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/profile?username=coderlens",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "profile"
+                            ],
+                            "query": [
+                                {
+                                    "key": "username",
+                                    "value": "coderlens",
+                                    "description": "(Required) username of the user"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "24373b8f-dc4e-4021-b0ae-085fbb1922b7",
+                            "name": "profile details retrived",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/profile?username=coderlens",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "profile"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "username",
+                                            "value": "coderlens"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"id\": \"abc\",\n \"username\": \"coderlens\",\n \"firstName\": \"Lenin\",\n \"email\": \"leninkennedy4work@gmail.com\",\n \"lastName\": \"Kennedy\",\n \"profilePictureURL\": \"\",\n \"location\": \"India\",\n \"interests\": [\n  \"Food\",\n  \"SaaS\"\n ],\n \"jobDescription\": {\n  \"jobTitle\": \"Backend Engineer\",\n  \"company\": \"Twitter\"\n }\n}"
+                        },
+                        {
+                            "id": "b786c539-6186-4632-975a-ee97b0e1c9f7",
+                            "name": "user does not exist",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/profile?username=lenin",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "profile"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "username",
+                                            "value": "lenin"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Not Found",
+                            "code": 404,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "edit the profile details of a user",
+                    "id": "f09692ed-31da-4eac-a6ca-551a8b5067ee",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n \"id\": \"abc\",\r\n \"username\": \"coderlens\",\r\n \"firstName\": \"Lenin\",\r\n \"email\": \"leninkennedy4work@gmail.com\",\r\n \"lastName\": \"Kennedy\",\r\n \"profilePictureURL\": \"\",\r\n \"location\": \"US\",\r\n \"interests\": [\r\n  \"Food\",\r\n  \"SaaS\"\r\n ],\r\n \"jobDescription\": {\r\n  \"jobTitle\": \"Backend Engineer\",\r\n  \"company\": \"Twitter\"\r\n }\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/profile?username=coderlens",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "profile"
+                            ],
+                            "query": [
+                                {
+                                    "key": "username",
+                                    "value": "coderlens",
+                                    "description": "(Required) username of the user"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "ea684b7a-323f-4c03-964b-c9d788d5257c",
+                            "name": "profile details updated",
+                            "originalRequest": {
+                                "method": "PATCH",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/profile?username=coderlens",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "profile"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "username",
+                                            "value": "coderlens"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                }
+            ],
+            "id": "65e6d33a-ce75-45b1-87ad-216d1fc438fb"
+        },
+        {
+            "name": "posts",
+            "item": [
+                {
+                    "name": ":id",
+                    "item": [
+                        {
+                            "name": "Get a post",
+                            "id": "fd2140cb-ff6a-4b70-8e21-5c95557dcb62",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "id",
+                                            "value": "amet culpa esse minim",
+                                            "description": "(Required) ID of the post"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "29f8ff00-6b46-4cfd-b699-91526299f888",
+                                    "name": "Returned a specific post by id",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "amet culpa esse minim"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n \"id\": \"commodo amet\",\n \"title\": \"ad velit exercitation\",\n \"body\": \"eiusmod ullamco\",\n \"interestCount\": 6575934,\n \"category\": \"amet adipisicing enim irure dolor\"\n}"
+                                },
+                                {
+                                    "id": "64b6a2be-3a2f-48c1-9fac-80e2b86cbab3",
+                                    "name": "post not found",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "amet culpa esse minim"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "update a post",
+                            "id": "d00baece-42b8-4a0c-9cdc-877f3b06ccd7",
+                            "request": {
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"id\": \"commodo amet\",\n    \"title\": \"ad velit exercitation\",\n    \"body\": \"eiusmod ullamco\",\n    \"interestCount\": 6575934,\n    \"category\": \"amet adipisicing enim irure dolor\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "id",
+                                            "value": "amet culpa esse minim",
+                                            "description": "(Required) ID of the post"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "639a29bc-beab-4ca5-9189-ebe85ba02663",
+                                    "name": "post details updated",
+                                    "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"id\": \"commodo amet\",\n    \"title\": \"ad velit exercitation\",\n    \"body\": \"eiusmod ullamco\",\n    \"interestCount\": 6575934,\n    \"category\": \"amet adipisicing enim irure dolor\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "amet culpa esse minim"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "af586973-020f-446e-b7a2-cdb5ac6ba14e",
+                                    "name": "invalid post",
+                                    "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"id\": \"commodo amet\",\n    \"title\": \"ad velit exercitation\",\n    \"body\": \"eiusmod ullamco\",\n    \"interestCount\": 6575934,\n    \"category\": \"amet adipisicing enim irure dolor\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "amet culpa esse minim"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Forbidden",
+                                    "code": 403,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "4a167e55-3c81-4493-9dfe-a89cec82628d",
+                                    "name": "post not found",
+                                    "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"id\": \"commodo amet\",\n    \"title\": \"ad velit exercitation\",\n    \"body\": \"eiusmod ullamco\",\n    \"interestCount\": 6575934,\n    \"category\": \"amet adipisicing enim irure dolor\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "amet culpa esse minim"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "delete a post",
+                            "id": "4c9f77ab-0d28-49d1-8c7e-778ff9b7fc75",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "id",
+                                            "value": "amet culpa esse minim",
+                                            "description": "(Required) ID of the post"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "id"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "9ac2c5f6-8168-403c-902f-e0d47706f6e9",
+                                    "name": "post details deleted",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "amet culpa esse minim"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "043ad11f-9dd5-4d81-b8da-0e77bf07053a",
+                                    "name": "post not found",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id?id=amet culpa esse minim",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "amet culpa esse minim"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "59537c4d-9d7b-4a60-9f5e-36eb1e39bb0a"
+                },
+                {
+                    "name": "Return all the posts",
+                    "id": "c41fd468-90d4-4542-bcd3-52db2509c432",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/posts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "posts"
+                            ]
+                        },
+                        "description": "Return all the posts that are in our app"
+                    },
+                    "response": [
+                        {
+                            "id": "8ace84d9-95c9-4520-abc5-9d60ffc17d98",
+                            "name": "An array of blog posts in JSON format",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "[\n {\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}\n]"
+                        }
+                    ]
+                },
+                {
+                    "name": "create a post",
+                    "id": "3204fdd6-8a24-4d54-bedc-901bed04fd7b",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/posts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "posts"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "7c759c90-15e6-4de3-a5df-a7a0bb34f997",
+                            "name": "Request is sucessful and a post created",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts"
+                                    ]
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        },
+                        {
+                            "id": "522f4d41-3667-4a95-a37d-8e4215aca432",
+                            "name": "invalid post",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"id\": \"123\",\n    \"title\": \"\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts"
+                                    ]
+                                }
+                            },
+                            "status": "Forbidden",
+                            "code": 403,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retruns an array of posts by category",
+                    "id": "e6755d3e-0ef1-4242-850b-c33ba7a87e14",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/posts/:category?category=food",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "posts",
+                                ":category"
+                            ],
+                            "query": [
+                                {
+                                    "key": "category",
+                                    "value": "food"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "category",
+                                    "value": "food"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "da3155ad-9302-4d6a-afeb-676c52571e28",
+                            "name": "post details retrived",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:category?category=food",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":category"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "category",
+                                            "value": "food"
+                                        }
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "category",
+                                            "value": null
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "[\n {\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}]"
+                        }
+                    ]
+                }
+            ],
+            "id": "070b9cfe-ad77-4ae4-a52d-941ea1c4a1fe"
+        },
+        {
+            "name": "Returns details about a particular user",
+            "id": "2190f666-45cb-425b-aff9-2d0ae10d8265",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"coderlens\",\n    \"password\": \"password\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/login",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "login"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "74ca76f1-2ced-4221-980c-948ce91d3b74",
+                    "name": "Login is successful",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"coderlens\",\n    \"password\": \"password\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "text",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "A link to the next page of responses",
+                            "key": "x-next",
+                            "value": "amet culpa esse minim"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                },
+                {
+                    "id": "3efd12fc-7f89-4eeb-a6b9-ab546a13579c",
+                    "name": "incorrect username/passowrd",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"coderlens\",\n    \"password\": \"password1\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": "text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                }
+            ]
+        },
+        {
+            "name": "Registers an user",
+            "id": "48ab12fe-941f-4b85-97b6-f9e2fa6fd22c",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"lenin\",\n    \"password\": \"password12\",\n    \"email\": \"leninkennedy4work@gmail.com\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/signup",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "signup"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "556f59f5-00d1-44da-9e15-4dbbbf22f67b",
+                    "name": "Signup is successful",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"lenin\",\n    \"password\": \"password12\",\n    \"email\": \"leninkennedy4work@gmail.com\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/signup",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "signup"
+                            ]
+                        }
+                    },
+                    "status": "Created",
+                    "code": 201,
+                    "_postman_previewlanguage": "text",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "A link to the next page of responses",
+                            "key": "x-next",
+                            "value": "amet culpa esse minim"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                },
+                {
+                    "id": "15a895d2-03ab-4a4d-a821-b9ab7da53697",
+                    "name": "invalid inputs",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"lenin\",\n    \"password\": \"password12\",\n    \"email\": \"\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/signup",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "signup"
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": "text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                }
+            ]
+        },
+        {
+            "name": "Get all categories",
+            "id": "f1bfafc0-8fac-469e-8db2-4cc692d11d42",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/category",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "category"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "72133fc7-4cbe-42b7-a897-a6affbbbe11e",
+                    "name": "categories retrived",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/category",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "category"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "[\n \"food\",\n \"fashion\"\n]"
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "61e488c4-4d05-4765-99d6-fdcb2e656b3f",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "e84adfdf-ca98-43a5-9336-0d1bccde6652",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "d5e960c7-19d0-46b3-ae81-f749c0231329",
+            "key": "baseUrl",
+            "value": "https://66336d6d-cdec-4551-970a-e7922bacc83c.mock.pstmn.io",
+            "type": "string"
+        }
+    ]
+}
