@@ -18,7 +18,7 @@ Hustle enables you to post your ideas, get upvotes for your ideas, get investors
 
 ## How we built it
 
-Everyone in our team wore multiple hats. We all collaborated together. We coded in different branches and merged them at the end.
+Our techstack was Mongo DB, Express.js ,React.js and Node.js .Everyone in our team wore multiple hats. We all collaborated together. We coded in different branches and merged them at the end.
 
 ## Challenges we ran into
 
