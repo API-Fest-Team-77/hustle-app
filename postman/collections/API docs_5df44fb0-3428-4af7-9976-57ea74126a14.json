@@ -1,0 +1,786 @@
+{
+    "info": {
+        "_postman_id": "c6a06a9e-795c-4d1d-b5c8-5ce8637ddaa3",
+        "name": "API docs",
+        "description": "This is the api for Hustle App where you can post and get data",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "profile",
+            "item": [
+                {
+                    "name": "update the profile details of a user",
+                    "id": "bb612453-22c6-447c-ae40-25a7028c0428",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n \"id\": \"abc\",\r\n \"username\": \"coderlens\",\r\n \"firstName\": \"Lenin\",\r\n \"email\": \"leninkennedy4work@gmail.com\",\r\n \"lastName\": \"Kennedy\",\r\n \"profilePictureURL\": \"\",\r\n \"location\": \"US\",\r\n \"interests\": [\r\n  \"Food\",\r\n  \"SaaS\"\r\n ],\r\n \"jobDescription\": {\r\n  \"jobTitle\": \"Backend Engineer\",\r\n  \"company\": \"Twitter\"\r\n }\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/profile?username=sint",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "profile"
+                            ],
+                            "query": [
+                                {
+                                    "key": "username",
+                                    "value": "sint",
+                                    "description": "(Required) username of the user"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "ab511d16-3f10-4458-a0a7-4848610b9724",
+                            "name": "profile details updated",
+                            "originalRequest": {
+                                "method": "PATCH",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/profile?username=coderlens",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "profile"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "username",
+                                            "value": "coderlens"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "Created",
+                            "code": 201,
+                            "_postman_previewlanguage": "text",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "returns the profile details of a user",
+                    "id": "6f936e05-2dc7-4506-870e-dc1b04db46cf",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/profile?username=sint",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "profile"
+                            ],
+                            "query": [
+                                {
+                                    "key": "username",
+                                    "value": "sint",
+                                    "description": "(Required) username of the user"
+                                }
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "id": "bd961d40-480f-4ce8-b370-ba70a197e8b0",
+                            "name": "profile details retrived",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/profile?username=coderlens",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "profile"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "username",
+                                            "value": "coderlens"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n \"id\": \"abc\",\n \"username\": \"coderlens\",\n \"firstName\": \"Lenin\",\n \"email\": \"leninkennedy4work@gmail.com\",\n \"lastName\": \"Kennedy\",\n \"profilePictureURL\": \"\",\n \"location\": \"India\",\n \"interests\": [\n  \"Food\",\n  \"SaaS\"\n ],\n \"jobDescription\": {\n  \"jobTitle\": \"Backend Engineer\",\n  \"company\": \"Twitter\"\n }\n}"
+                        }
+                    ]
+                }
+            ],
+            "id": "43562474-2957-4cc3-a26f-c8dbf26515f7"
+        },
+        {
+            "name": "posts",
+            "item": [
+                {
+                    "name": "{id}",
+                    "item": [
+                        {
+                            "name": "Get a post",
+                            "id": "ad7fc98a-d3ea-4d0b-9479-77e7702d847f",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "2e021661-4565-43fb-a420-fbc47d38f271",
+                                            "key": "id",
+                                            "value": "123",
+                                            "description": "(Required) ID of the post"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "41973ad4-1fdb-4a46-8a6d-d1bb2923f32c",
+                                    "name": "Returned a specific post by id",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "123",
+                                                    "description": "(Required) ID of the post"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": "{\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "update a post",
+                            "id": "5b9bd9ac-abc0-4d85-95c1-4e004a838bc2",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"id\": \"123\",\n    \"title\": \"Homemade Food idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "0c922f0f-8960-4a88-b32e-07b21c65cb7a",
+                                            "key": "id",
+                                            "value": "123",
+                                            "description": "(Required) ID of the post"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "37859c14-b726-4a69-8769-8cfb2b777a3a",
+                                    "name": "post details updated",
+                                    "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [],
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n    \"id\": \"123\",\n    \"title\": \"Homemade Food idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "123",
+                                                    "description": "(Required) ID of the post"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "delete a post",
+                            "id": "6d27e95c-ffac-4f27-8720-5e16e203e0fb",
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            },
+                            "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts/:id",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts",
+                                        ":id"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "id": "b8b7767d-8ac5-479a-b8fd-687c5b132ffc",
+                                            "key": "id",
+                                            "value": "123",
+                                            "description": "(Required) ID of the post"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "3ca3d86b-f601-47e9-9c11-898b022d4725",
+                                    "name": "post details deleted",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "123",
+                                                    "description": "(Required) ID of the post"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                },
+                                {
+                                    "id": "5efa5440-2e65-4c9f-8bf0-bc4e874a5d5f",
+                                    "name": "post not found",
+                                    "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                            "raw": "{{baseUrl}}/posts/:id",
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "path": [
+                                                "posts",
+                                                ":id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "id",
+                                                    "value": "456",
+                                                    "description": "(Required) ID of the post"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "_postman_previewlanguage": "text",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "responseTime": null,
+                                    "body": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "dbba55df-3ae2-40ec-9629-98b3840d137f",
+                    "description": "get update and delete post by id"
+                },
+                {
+                    "name": "Return all the posts",
+                    "id": "8a9bbc2e-3ae3-4020-a5f1-473ae39245ad",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/posts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "posts"
+                            ]
+                        },
+                        "description": "Return all the posts that are in our app"
+                    },
+                    "response": [
+                        {
+                            "id": "1a9cdc4d-7441-4dbd-b791-d3121493aae5",
+                            "name": "An array of blog posts in JSON format",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/posts",
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "path": [
+                                        "posts"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "[\n {\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}\n]"
+                        }
+                    ]
+                }
+            ],
+            "id": "c6ad5300-2302-4283-b6f1-b09d89eb661a",
+            "description": "endpoints for the idea posts by users"
+        },
+        {
+            "name": "create a post",
+            "id": "e76a48f3-002c-4bc0-baf9-aa1e4d9574b4",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/posts",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "248f5b56-2f40-4187-84f4-621e21218580",
+                    "name": "Request is sucessful and a post created",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"123\",\n    \"title\": \"Homemade Food delivery idea\",\n    \"body\": \"An app which you can use to order food from home makers\",\n    \"interestCount\": 2,\n    \"category\": \"food\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/posts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "posts"
+                            ]
+                        }
+                    },
+                    "status": "Created",
+                    "code": 201,
+                    "_postman_previewlanguage": "text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                }
+            ]
+        },
+        {
+            "name": "Returns details about a particular user",
+            "id": "9495e79d-70a6-4817-b92c-2b79384e6010",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"coderlens\",\n    \"password\": \"password\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/login",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "login"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "dad7472d-25e8-4776-bf71-012e372f5def",
+                    "name": "Login is successful",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"coderlens\",\n    \"password\": \"password\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                }
+            ]
+        },
+        {
+            "name": "Registers an user",
+            "id": "d3f43808-5b9c-4927-ac7a-a9c44266f2f3",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"lenin\",\n    \"password\": \"password12\",\n    \"email\": \"leninkennedy4work@gmail.com\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/signup",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "signup"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "a680b7f0-f20c-4f5d-9ce5-cc10232a2801",
+                    "name": "Signup is successful",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"lenin\",\n    \"password\": \"password12\",\n    \"email\": \"leninkennedy4work@gmail.com\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/signup",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "signup"
+                            ]
+                        }
+                    },
+                    "status": "Created",
+                    "code": 201,
+                    "_postman_previewlanguage": "text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": ""
+                }
+            ]
+        },
+        {
+            "name": "Get all categories",
+            "id": "45545bd1-a066-40d2-8e69-95dba68b6567",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/category",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "category"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "e68627ed-3f71-4a75-9c92-2af1de89104c",
+                    "name": "categories retrived",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/category",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "category"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "[\n \"food\",\n \"fashion\"\n]"
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "a5d7c13e-4806-4f6b-80e6-6139b6088f51",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "38883a5d-deaa-4e58-8471-acdcc3a06860",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "f1d63632-e154-455e-8a1e-599d5585185a",
+            "key": "baseUrl",
+            "value": "https://b2499877-ef71-4273-80ec-e55f2d4c0907.mock.pstmn.io",
+            "type": "string"
+        }
+    ]
+}
