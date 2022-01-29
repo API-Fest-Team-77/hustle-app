@@ -1,0 +1,282 @@
+openapi: 3.0.0
+info:
+  version: "v1"
+  title: "Hustle-API"
+servers:
+  - url: "localhost:3000"
+    description: Test server
+paths:
+  /login:
+    post:
+      summary: "Returns details about a particular user"
+      operationId: loginUser
+      tags:
+        - login
+      requestBody:
+        required: true
+        description: user details
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserAuth"
+      responses:
+        "200":
+          description: "Login is successful"
+        "404":
+          description: "user not found"
+  /signup:
+    post:
+      summary: "Registers an user"
+      operationId: UserSignup
+      tags:
+        - signup
+      requestBody:
+        required: true
+        description: user details
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+
+      responses:
+        "201":
+          description: "Signup is successful"
+  /profile:
+    get:
+      summary: "returns the profile details of a user"
+      operationId: UserProfile
+      tags:
+        - profile
+      parameters:
+        - $ref: "#/components/parameters/username"
+      responses:
+        "200":
+          description: "profile details retrived"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: "user does not exist"
+    patch:
+      summary: "edit the profile details of a user"
+      operationId: UserProfile
+      tags:
+        - profile
+      parameters:
+        - $ref: "#/components/parameters/username"
+      responses:
+        "201":
+          description: "profile details updated"
+  /posts:
+    get:
+      summary: "Return all the posts"
+      description: "Return all the posts that are in our app"
+      operationId: getPosts
+      tags:
+        - posts
+      responses:
+        "200":
+          description: "An array of blog posts in JSON format"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/posts"
+    post:
+      summary: "create a post"
+      operationId: createPost
+      tags:
+        - post
+      requestBody:
+        required: true
+        description: post info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/post"
+      responses:
+        "200":
+          description: "Request is sucessful and a post created"
+        "500":
+          description: "error"
+  /posts/:id:
+    get:
+      summary: "Get a post"
+      operationId: getPost
+      tags:
+        - post
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        "200":
+          description: "Returned a specific post by id"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/post"
+        "404":
+          description: "post not found"
+
+    put:
+      summary: "update a post"
+      operationId: updatePost
+      tags:
+        - post
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        required: true
+        description: post info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/post"
+      responses:
+        "201":
+          description: "post details updated"
+        "403":
+          description: "not authorized"
+    delete:
+      summary: "delete a post"
+      operationId: deletePost
+      tags:
+        - post
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        "200":
+          description: "post details deleted"
+        "403":
+          description: "not authorized"
+  /posts/:id/like:
+    put:
+      summary: "like a post"
+      operationId: likePost
+      tags:
+        - post
+      parameters:
+        - $ref: "#/components/parameters/id"
+      requestBody:
+        required: true
+        description: post info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/post"
+      responses:
+        "201":
+          description: "You liked this post!"
+        "403":
+          description: "You Disliked this post!"
+  /timeline:
+    get:
+      summary: "get your timeline"
+      operationId: updatePost
+      tags:
+        - post
+      requestBody:
+        required: true
+        description: user info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/userId"
+      responses:
+        "201":
+          description: "post details updated"
+        "403":
+          description: "not authorized"
+
+components:
+  parameters:
+    username:
+      name: username
+      in: query
+      description: username of the user
+      required: true
+      schema:
+        type: string
+    id:
+      name: id
+      in: query
+      description: ID of the post
+      required: true
+      schema:
+        type: string
+  schemas:
+    id:
+      type: string
+    userId:
+      type: string
+    imageURL:
+      type: string
+    UserAuth:
+        type: object
+        required:
+            - username
+            - password
+        properties:
+            username:
+                type: string
+            password:
+                type: string
+    User:
+      type: object
+      required:
+        - id
+        - username
+        - firstName
+        - email
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        profilePicture:
+          type: string
+        location:
+          type: string
+        jobTitle:
+          type: string
+        companyName:
+          type: string
+        about:
+          type: string
+        followers:
+          type: array
+          items:
+            $ref: "#/components/schemas/userId"
+        following:
+          type: array
+          items:
+            $ref: "#/components/schemas/userId"
+    post:
+      type: object
+      description: "post of an idea"
+      required:
+        - userId
+        - title
+        - content
+        - images
+        - likes
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+        likes:
+          type: array
+          items: 
+              $ref: "#/components/schemas/userId"
+        images:
+          $ref: "#/components/schemas/imageURL"
